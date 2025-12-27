@@ -1,12 +1,9 @@
-[
-  {
-    "name": "Anjali",
-    "symbol": "X",
-    "winCount": 1
-  },
-  {
-    "name": "Nidhi",
-    "symbol": "O",
-    "winCount": 0
-  }
-]
+[ {
+  "name" : "Anjali",
+  "symbol" : "X",
+  "winCount" : 2
+}, {
+  "name" : "Nidhi",
+  "symbol" : "O",
+  "winCount" : 1
+} ]

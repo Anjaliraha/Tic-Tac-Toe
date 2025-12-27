@@ -2,6 +2,7 @@ package repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import entities.Players;
 
 import java.io.File;
@@ -39,6 +40,7 @@ public class PlayerRepository {
 
         File file = new File(FILEPATH);
         try {
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
             objectMapper.writeValue(file, this.playersList);
         } catch (IOException e) {
             System.out.println("File does not exist");
