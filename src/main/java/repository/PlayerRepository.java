@@ -33,9 +33,12 @@ public class PlayerRepository {
     return playersList;
   }
 
-  public void SavePlayerToList() {
+  public void SavePlayerToList(Players players) {
+    Players players1=playersList.stream().filter(players2 -> players2.getName().equals(players.getName())).findFirst().orElse(null);
+    players1.setWinCount(players.getWinCount());
+
     File file = new File(FILEPATH);
-    try {
+        try {
       objectMapper.writeValue(file, players);
     } catch (IOException e) {
       System.out.println("File does not exist");

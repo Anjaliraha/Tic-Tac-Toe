@@ -8,11 +8,12 @@ import services.MakeMoveService;
 import utils.TicTaeToeUtils;
 
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
         Board board = new Board();
-        Players players;
+        Players currentPlayer;
         PlayerRepository playerRepository = null;
         try {
             playerRepository = new PlayerRepository();
@@ -21,16 +22,20 @@ public class Main {
         }
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Who will go first,please provide the name");
+        System.out.print("Who will go first,please provide the name : ");
         assert playerRepository != null;
         String name = sc.next();
         Integer currentPlayerIndex = playerRepository.findPlayer(name);
-        players = playerRepository.findOrCreatePlayer(name);
+        currentPlayer = playerRepository.findOrCreatePlayer(name);
 
-        MakeMoveService makeMoveService = new MakeMoveService(board, players);
-        GameSession gameSession = new GameSession(players);
-        while (!makeMoveService.Winchecker() && !makeMoveService.drawCheck()) {
-            Players currentPlayer = playerRepository.getPlayersList().get(currentPlayerIndex);
+        MakeMoveService makeMoveService = new MakeMoveService(board,currentPlayer);
+        GameSession gameSession = new GameSession();
+        while (!isGameOver(makeMoveService)) {
+            currentPlayer = playerRepository.getPlayersList().get(currentPlayerIndex);
+            Consumer<Players> announcer =
+                    p -> System.out.println("\n" + p.getName() + " [" + p.getSymbol() + "], it's your turn!");
+            announcer.accept(currentPlayer);
+            System.out.println(currentPlayer);
             Boolean movePlaced = false;
             while (!movePlaced) {
                 board.displayBoard();
@@ -40,25 +45,35 @@ public class Main {
                     int col = sc.nextInt();
                     if (TicTaeToeUtils.IsValidMove(board, row, col)) {
                         makeMoveService.placeMove(row, col, currentPlayer);
-                        movePlaced=true;
+                        if (makeMoveService.Winchecker()) {
+                            board.displayBoard();
+                            System.out.println("Game Over! We have a winner. " + currentPlayer.getName());
+                            int count = currentPlayer.getWinCount();
+                            currentPlayer.setWinCount(count++);
+                            playerRepository.SavePlayerToList(currentPlayer);
+                            break;
+                        }
+                         if(makeMoveService.drawCheck()) {
+                             board.displayBoard();
+                             System.out.println("It's a draw!");
+                             break;
+                        }
+                        movePlaced = true;
                     }
                 } catch (CellOccupiedException e) {
                     System.out.println(e);
                 } catch (InvalidMoveException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e);
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter numbers only.");
                     sc.next();
                 }
-                currentPlayerIndex = gameSession.switchPlayer(currentPlayerIndex);
-                System.out.println(currentPlayerIndex);
             }
+            currentPlayerIndex = gameSession.switchPlayer(currentPlayerIndex);
         }
-        board.displayBoard();
-        if (makeMoveService.Winchecker()) {
-            System.out.println("Game Over! We have a winner.");
-        } else {
-            System.out.println("It's a draw!");
-        }
+
+    }
+    public static boolean isGameOver(MakeMoveService makeMoveService){
+        return makeMoveService.Winchecker() ||  makeMoveService.drawCheck();
     }
 }
