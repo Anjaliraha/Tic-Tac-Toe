@@ -7,6 +7,7 @@ import entities.Players;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PlayerRepository {
@@ -48,8 +49,19 @@ public class PlayerRepository {
   public void updateWinCount(Players players) {
     playersList.stream()
         .filter(players2 -> players2.getName().equals(players.getName()))
-        .findFirst()
-        .ifPresent(p -> p.setWinCount(players.getWinCount() + 1));
+        .collect(
+            Collectors.mapping(
+                p -> {
+                  p.setWinCount(players.getWinCount() + 1);
+                  return p;
+                },
+                Collectors.toList()));
+
+    // below can be used as well
+    //        playersList.stream()
+    //                .filter(players2 -> players2.getName().equals(players.getName()))
+    //                .findFirst()
+    //                .ifPresent(p -> p.setWinCount(players.getWinCount() + 1));
 
     savePlayerToList();
   }
