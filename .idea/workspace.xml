@@ -7,10 +7,7 @@
     <list default="true" id="1415c026-6e91-44b6-a7d6-3d0c7b05e1b5" name="Changes" comment="Tic Tac Toe Game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jsons/Players.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jsons/Players.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/MakeMoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MakeMoveService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766861345043</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Tic Tac Toe Game">
+      <option name="closed" value="true" />
+      <created>1766864571036</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1766864571036</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -152,22 +157,22 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>26</line>
+          <line>27</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>28</line>
+          <line>29</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -182,17 +187,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>48</line>
+          <line>55</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>50</line>
+          <line>57</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/PlayerRepository.java</url>
-          <line>51</line>
+          <line>58</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -212,7 +217,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>78</line>
+          <line>76</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

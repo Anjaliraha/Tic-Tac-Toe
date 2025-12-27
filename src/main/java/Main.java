@@ -48,9 +48,7 @@ public class Main {
                         if (makeMoveService.Winchecker()) {
                             board.displayBoard();
                             System.out.println("Game Over! We have a winner. " + currentPlayer.getName());
-                            int count = currentPlayer.getWinCount();
-                            currentPlayer.setWinCount(count++);
-                            playerRepository.SavePlayerToList(currentPlayer);
+                           playerRepository.updateWinCount(currentPlayer);
                             break;
                         }
                          if(makeMoveService.drawCheck()) {
