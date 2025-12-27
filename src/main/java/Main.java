@@ -32,6 +32,7 @@ public class Main {
         GameSession gameSession = new GameSession();
         while (!isGameOver(makeMoveService)) {
             currentPlayer = playerRepository.getPlayersList().get(currentPlayerIndex);
+            makeMoveService.setCurrentPlayer(currentPlayer);
             Consumer<Players> announcer =
                     p -> System.out.println("\n" + p.getName() + " [" + p.getSymbol() + "], it's your turn!");
             announcer.accept(currentPlayer);
@@ -49,12 +50,12 @@ public class Main {
                             board.displayBoard();
                             System.out.println("Game Over! We have a winner. " + currentPlayer.getName());
                            playerRepository.updateWinCount(currentPlayer);
-                            break;
+                            return;
                         }
                          if(makeMoveService.drawCheck()) {
                              board.displayBoard();
                              System.out.println("It's a draw!");
-                             break;
+                             return;
                         }
                         movePlaced = true;
                     }

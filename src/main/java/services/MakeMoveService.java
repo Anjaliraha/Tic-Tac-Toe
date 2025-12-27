@@ -22,6 +22,10 @@ public class MakeMoveService {
     public MakeMoveService() {
     }
 
+    public void setCurrentPlayer(Players player) {
+        this.player = player;
+    }
+
     public void placeMove(int row, int col, Players players)
             throws CellOccupiedException, InvalidMoveException {
         if (TicTaeToeUtils.IsValidMove(board, row, col)) {
