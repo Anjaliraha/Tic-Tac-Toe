@@ -66,8 +66,6 @@ public class MakeMoveService {
 
         int antiDiagonalCount = 0;
         for (int i = 0; i < n; i++) {
-
-
             if (grid[n - 1 - i][i] == symbol) {
                 antiDiagonalCount++;
             }
