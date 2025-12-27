@@ -11,10 +11,6 @@ public class Board {
     initializeboard();
   }
 
-  public Board(Symbol[][] board) {
-    this.board = board;
-  }
-
   public Symbol[][] getBoard() {
     return board;
   }

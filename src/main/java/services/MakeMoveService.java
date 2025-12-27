@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
 import utils.TicTaeToeUtils;
 
 public class MakeMoveService {
-  Board board = new Board();
+  Board board;
   Players player;
 
   public MakeMoveService(Board board, Players players) {
