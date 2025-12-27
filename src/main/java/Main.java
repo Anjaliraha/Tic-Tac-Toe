@@ -35,7 +35,6 @@ public class Main {
       Consumer<Players> announcer =
           p -> System.out.println("\n" + p.getName() + " [" + p.getSymbol() + "], it's your turn!");
       announcer.accept(currentPlayer);
-      System.out.println(currentPlayer);
       Boolean movePlaced = false;
       while (!movePlaced) {
         board.displayBoard();
@@ -59,9 +58,9 @@ public class Main {
             movePlaced = true;
           }
         } catch (CellOccupiedException e) {
-          System.out.println(e);
+          System.out.println(e.getMessage());
         } catch (InvalidMoveException e) {
-          System.out.println(e);
+          System.out.println(e.getMessage());
         } catch (Exception e) {
           System.out.println("Invalid input. Please enter numbers only.");
           sc.next();
